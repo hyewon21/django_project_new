@@ -3,6 +3,9 @@
 {% block title %}Detail{% endblock %}
 
 {% block content %}
-{{object.site_name}}<br/>
+<span style="color:#3AC0C7"><h4><strong>{{object.site_name}}</strong></h4></span>
 {{object.url}}
+<br><br><a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a>&nbsp;
+<a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a>&nbsp;
+<input type="button" class="btn btn-default" style="color: white; background:#FB893A; height: 33px; font-size: 14px", value="Back" onclick="history.back(-1)">
 {% endblock %}

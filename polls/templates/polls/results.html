@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %} polls/index.html {% endblock %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 <h1>{{question.question_text}}</h1>
 <ul>
     {% for choice in question.choice_set.all %}
@@ -14,5 +11,4 @@
     {% endfor %}
 </ul>
 <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
-</body>
-</html>
+{% endblock %}
